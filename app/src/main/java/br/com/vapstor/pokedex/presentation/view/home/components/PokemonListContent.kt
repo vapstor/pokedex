@@ -28,7 +28,7 @@ fun PokemonListContent(
     hasNextPage: Boolean,
     onPokemonClick: (Pokemon) -> Unit,
     onLoadMore: () -> Unit,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
 ) {
     val listState = rememberLazyListState()
 
@@ -50,22 +50,22 @@ fun PokemonListContent(
     Box(modifier = modifier.fillMaxSize()) {
         if (isLoading && pokemons.isEmpty()) {
             CircularProgressIndicator(
-                modifier = Modifier.align(Alignment.Center)
+                modifier = Modifier.align(Alignment.Center),
             )
         } else {
             LazyColumn(
                 state = listState,
                 modifier = Modifier.fillMaxSize(),
                 contentPadding = PaddingValues(16.dp),
-                verticalArrangement = Arrangement.spacedBy(8.dp)
+                verticalArrangement = Arrangement.spacedBy(8.dp),
             ) {
                 itemsIndexed(
                     items = pokemons,
-                    key = { _, pokemon -> pokemon.id }
+                    key = { _, pokemon -> pokemon.id },
                 ) { _, pokemon ->
                     PokemonItemCard(
                         pokemon = pokemon,
-                        onClick = onPokemonClick
+                        onClick = onPokemonClick,
                     )
                 }
 
@@ -75,7 +75,7 @@ fun PokemonListContent(
                             modifier = Modifier
                                 .fillMaxWidth()
                                 .padding(vertical = 16.dp),
-                            contentAlignment = Alignment.Center
+                            contentAlignment = Alignment.Center,
                         ) {
                             CircularProgressIndicator()
                         }
@@ -93,7 +93,7 @@ private fun PokemonListContentPreview() {
         Pokemon(id = 1, name = "bulbasaur"),
         Pokemon(id = 4, name = "charmander"),
         Pokemon(id = 7, name = "squirtle"),
-        Pokemon(id = 25, name = "pikachu")
+        Pokemon(id = 25, name = "pikachu"),
     )
 
     PokemonListContent(
@@ -102,6 +102,6 @@ private fun PokemonListContentPreview() {
         isLoadingMore = true,
         hasNextPage = true,
         onPokemonClick = {},
-        onLoadMore = {}
+        onLoadMore = {},
     )
 }

@@ -10,11 +10,8 @@ data class PokemonListResponse(
     val count: Int,
     val next: String? = null,
     val previous: String? = null,
-    val results: List<PokemonItemDTO>
+    val results: List<PokemonItemDTO>,
 )
 
 @Serializable
-data class PokemonItemDTO(
-    val name: String,
-    val url: String
-)
+data class PokemonItemDTO(val name: String, val url: String)

@@ -5,6 +5,7 @@ import androidx.lifecycle.viewModelScope
 import br.com.vapstor.pokedex.domain.usecase.GetPokemonsPageUseCase
 import br.com.vapstor.pokedex.presentation.state.PokemonPageUiState
 import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -13,12 +14,9 @@ import kotlinx.coroutines.flow.onCompletion
 import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
-import javax.inject.Inject
 
 @HiltViewModel
-class HomeViewModel @Inject constructor(
-    private val getPokemonsPageUseCase: GetPokemonsPageUseCase
-) : ViewModel() {
+class HomeViewModel @Inject constructor(private val getPokemonsPageUseCase: GetPokemonsPageUseCase) : ViewModel() {
 
     private val pageSize = 20
     private var currentOffset = 0
@@ -45,7 +43,7 @@ class HomeViewModel @Inject constructor(
                 state.copy(
                     isLoading = isInitialLoad && state.pokemons.isEmpty(),
                     isLoadingMore = !isInitialLoad && state.pokemons.isNotEmpty(),
-                    errorMessage = null
+                    errorMessage = null,
                 )
             }
 
@@ -57,7 +55,7 @@ class HomeViewModel @Inject constructor(
                         state.copy(
                             errorMessage = exception.message ?: "Erro desconhecido",
                             isLoading = false,
-                            isLoadingMore = false
+                            isLoadingMore = false,
                         )
                     }
                 }
@@ -76,7 +74,7 @@ class HomeViewModel @Inject constructor(
                             isLoading = false,
                             isLoadingMore = false,
                             hasNextPage = page.hasNextPage,
-                            errorMessage = null
+                            errorMessage = null,
                         )
                     }
                 }
