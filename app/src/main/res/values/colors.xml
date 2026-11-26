@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Neutros -->
+    <color name="slate_950">#FF0D1117</color>
+    <color name="slate_900">#FF141B24</color>
+    <color name="slate_800">#FF1E2936</color>
+    <color name="slate_700">#FF334155</color>
+    <color name="slate_200">#FFD8E0E8</color>
+    <color name="slate_100">#FFEBF0F5</color>
+    <color name="slate_50">#FFF6F8FA</color>
+    <color name="pure_white">#FFFFFFFF</color>
+
+    <!-- Primária: Carmim sóbrio (referência contida ao clássico) -->
+    <color name="crimson_700">#FF8E1D2C</color>
+    <color name="crimson_600">#FFA62639</color>
+    <color name="crimson_300">#FFE05A6B</color>
+    <color name="crimson_100">#FFFCE8EB</color>
+    <color name="crimson_900_muted">#FF3B151C</color>
+
+    <!-- Secundária: Petróleo / Teal técnico -->
+    <color name="teal_700">#FF155658</color>
+    <color name="teal_600">#FF1D6F72</color>
+    <color name="teal_300">#FF4FB3B6</color>
+    <color name="teal_100">#FFE3F3F3</color>
+    <color name="teal_900_muted">#FF122E30</color>
+
+    <!-- Erro -->
+    <color name="error_light">#FFB3261E</color>
+    <color name="error_dark">#FFF2B8B5</color>
+</resources>
