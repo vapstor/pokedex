@@ -4,16 +4,14 @@ import br.com.vapstor.pokedex.data.mapper.PokemonMapper
 import br.com.vapstor.pokedex.data.remote.PokemonAPI
 import br.com.vapstor.pokedex.domain.model.PokemonsPage
 import br.com.vapstor.pokedex.domain.repository.PokemonRepo
+import javax.inject.Inject
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
-import javax.inject.Inject
 
 /**
  *  Implementação do repositório de pokemons
  */
-class PokemonRepoImpl @Inject constructor(
-    private val api: PokemonAPI
-) : PokemonRepo {
+class PokemonRepoImpl @Inject constructor(private val api: PokemonAPI) : PokemonRepo {
 
     /**
      *  Retorna uma lista de pokemons a partir da API
@@ -25,7 +23,7 @@ class PokemonRepoImpl @Inject constructor(
         val page = PokemonsPage(
             items = response.results.map { PokemonMapper.toDomain(it) },
             hasNextPage = response.next != null,
-            totalCount = response.count
+            totalCount = response.count,
         )
         emit(page)
     }

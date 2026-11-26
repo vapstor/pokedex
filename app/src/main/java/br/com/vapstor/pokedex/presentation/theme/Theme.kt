@@ -52,7 +52,7 @@ private val LightColorScheme = lightColorScheme(
     onSurfaceVariant = Slate700,
     outline = Slate200,
     error = ErrorLight,
-    onError = PureWhite
+    onError = PureWhite,
 )
 
 private val DarkColorScheme = darkColorScheme(
@@ -72,18 +72,18 @@ private val DarkColorScheme = darkColorScheme(
     onSurfaceVariant = Slate200,
     outline = Slate700,
     error = ErrorDark,
-    onError = Slate950
+    onError = Slate950,
 )
 
 @Composable
 fun PokedexTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
-    content: @Composable () -> Unit
+    content: @Composable () -> Unit,
 ) {
     val colorScheme = if (darkTheme) DarkColorScheme else LightColorScheme
 
     MaterialTheme(
         colorScheme = colorScheme,
-        content = content
+        content = content,
     )
 }

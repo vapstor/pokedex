@@ -29,7 +29,7 @@ import br.com.vapstor.pokedex.presentation.viewmodel.HomeViewModel
 fun HomeRoute(
     viewModel: HomeViewModel,
     onPokemonClick: (Pokemon) -> Unit,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
 ) {
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
 
@@ -38,7 +38,7 @@ fun HomeRoute(
         onPokemonClick = onPokemonClick,
         onLoadMore = { viewModel.getPokemonsPage(isInitialLoad = false) },
         onRetry = { viewModel.getPokemonsPage(isInitialLoad = true) },
-        modifier = modifier
+        modifier = modifier,
     )
 }
 
@@ -49,15 +49,15 @@ fun HomeScreen(
     onPokemonClick: (Pokemon) -> Unit,
     onLoadMore: () -> Unit,
     onRetry: () -> Unit,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
 ) {
     Scaffold(
         modifier = modifier.fillMaxSize(),
         topBar = {
             TopAppBar(
-                title = { Text("Pokédex") }
+                title = { Text("Pokédex") },
             )
-        }
+        },
     ) { innerPadding ->
         val hasErrorWithoutData = uiState.errorMessage != null && uiState.pokemons.isEmpty()
 
@@ -65,7 +65,7 @@ fun HomeScreen(
             ErrorStateContent(
                 message = uiState.errorMessage,
                 onRetry = onRetry,
-                modifier = Modifier.padding(innerPadding)
+                modifier = Modifier.padding(innerPadding),
             )
         } else {
             PokemonListContent(
@@ -75,7 +75,7 @@ fun HomeScreen(
                 hasNextPage = uiState.hasNextPage,
                 onPokemonClick = onPokemonClick,
                 onLoadMore = onLoadMore,
-                modifier = Modifier.padding(innerPadding)
+                modifier = Modifier.padding(innerPadding),
             )
         }
     }
@@ -85,21 +85,21 @@ fun HomeScreen(
 private fun ErrorStateContent(
     message: String,
     onRetry: () -> Unit,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
 ) {
     Box(
         modifier = modifier
             .fillMaxSize()
             .padding(24.dp),
-        contentAlignment = Alignment.Center
+        contentAlignment = Alignment.Center,
     ) {
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Center
+            verticalArrangement = Arrangement.Center,
         ) {
             Text(
                 text = message,
-                style = MaterialTheme.typography.bodyLarge
+                style = MaterialTheme.typography.bodyLarge,
             )
             Spacer(modifier = Modifier.height(16.dp))
             Button(onClick = onRetry) {
@@ -117,12 +117,12 @@ private fun HomeScreenPreview() {
             pokemons = listOf(
                 Pokemon(id = 1, name = "bulbasaur"),
                 Pokemon(id = 4, name = "charmander"),
-                Pokemon(id = 25, name = "pikachu")
+                Pokemon(id = 25, name = "pikachu"),
             ),
-            hasNextPage = true
+            hasNextPage = true,
         ),
         onPokemonClick = {},
         onLoadMore = {},
-        onRetry = {}
+        onRetry = {},
     )
 }

@@ -7,5 +7,5 @@ data class PokemonPageUiState(
     val isLoading: Boolean = false,
     val isLoadingMore: Boolean = false,
     val hasNextPage: Boolean = true,
-    val errorMessage: String? = null
+    val errorMessage: String? = null,
 )

@@ -9,19 +9,17 @@ import br.com.vapstor.pokedex.domain.model.Pokemon
  */
 object PokemonMapper {
 
-    fun toDomain(pokemonList: PokemonItemDTO): Pokemon {
-        return Pokemon(
+    fun toDomain(pokemonList: PokemonItemDTO): Pokemon =
+        Pokemon(
             id = pokemonList.url.trimEnd('/').substringAfterLast('/').toIntOrNull()
                 ?: 0,
             name = pokemonList.name,
-            url = pokemonList.url
+            url = pokemonList.url,
         )
-    }
 
-    fun toDTO(pokemon: Pokemon): PokemonItemDTO {
-        return PokemonItemDTO(
+    fun toDTO(pokemon: Pokemon): PokemonItemDTO =
+        PokemonItemDTO(
             name = pokemon.name,
-            url = pokemon.url
+            url = pokemon.url,
         )
-    }
 }

@@ -11,7 +11,7 @@ interface PokemonAPI {
     @GET(POKEMON)
     suspend fun getPokemons(
         @Query("limit") limit: Int = 20,
-        @Query("offset") offset: Int = 0
+        @Query("offset") offset: Int = 0,
     ): PokemonListResponse
     // Podendo retornar Response<List<PokemonDTO>>
     // para tratamentos de erros específicos em PokemonRepoImpl
